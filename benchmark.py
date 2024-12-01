@@ -33,7 +33,7 @@ class Bench():
 
         elif answers["algorytm"] == "fib_big_even_odd":
             print('Введите число:')
-            self.odd()
+            self.fib_eo()
     
     def rec(self):
         n = int(input())
@@ -45,6 +45,8 @@ class Bench():
         duration = time_end - time_start
         print(f"Посчитано за {duration}")
 
+        self.gui()
+
     def loop(self):
         n = int(input())
 
@@ -54,6 +56,8 @@ class Bench():
 
         duration = time_end - time_start
         print(f"Посчитано за {duration}")
+
+        self.gui()
 
     def arr(self):
         n = int(input())
@@ -65,6 +69,8 @@ class Bench():
         duration = time_end - time_start
         print(f"Посчитано за {duration}")
 
+        self.gui()
+
     def bin(self):
         n = int(input())
 
@@ -75,7 +81,9 @@ class Bench():
         duration = time_end - time_start
         print(f"Посчитано за: {duration}")
 
-    def odd(self):
+        self.gui()
+
+    def fib_eo(self):
         n = int(input())
 
         time_start = perf_counter()
@@ -87,9 +95,11 @@ class Bench():
         print(f"Посчитано за: {duration}")
 
         if algoritms.fib_big_even_odd(n) % 2 == 0:
-            print("Четное")
+            print("even")
         else:
-            print("Нечетное")
+            print("odd")
+
+        self.gui()
 
 if __name__ == "__main__":
     App = Bench()
