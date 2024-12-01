@@ -8,20 +8,32 @@ class Bench():
 
     def gui(self):
         # Опции меню выбора
-        options = ['fib_recursive', 'fib_loop', 'fib_array']
-        questions = [inquirer.List('algorytm', message="Каким алгоритмом считать число фибоначи?", choices=options, ), ]
+        options = ['fib_recursive', 'fib_loop', 'fib_array', 'fib_binet', 'fib_big_even_odd']
+        questions = [inquirer.List('algorytm', message="Каким алгоритмом считать число фибоначчи?", choices=options, ), ]
         answers = inquirer.prompt(questions)
+
+        self.select_method = None
 
         # Ответ на выбор пункта меню
         if answers["algorytm"] == "fib_recursive":
             print('Введите число:')
             self.rec()
+
         elif answers["algorytm"] == "fib_loop":
             print('Введите число:')
             self.loop()
+            
         elif answers["algorytm"] == "fib_array":
             print('Введите число:')
             self.arr()
+        
+        elif answers["algorytm"] == "fib_binet":
+            print('Введите число:')
+            self.bin()
+
+        elif answers["algorytm"] == "fib_big_even_odd":
+            print('Введите число:')
+            self.odd()
     
     def rec(self):
         n = int(input())
@@ -52,6 +64,32 @@ class Bench():
 
         duration = time_end - time_start
         print(f"Посчитано за {duration}")
+
+    def bin(self):
+        n = int(input())
+
+        time_start = perf_counter()
+        print(f"Значения: {algoritms.fib_binet(n)}")
+        time_end = perf_counter()
+
+        duration = time_end - time_start
+        print(f"Посчитано за: {duration}")
+
+    def odd(self):
+        n = int(input())
+
+        time_start = perf_counter()
+        print(f"Значение: {algoritms.fib_big_even_odd(n)}")
+        time_end = perf_counter()
+        
+
+        duration = time_end - time_start
+        print(f"Посчитано за: {duration}")
+
+        if algoritms.fib_big_even_odd(n) % 2 == 0:
+            print("Четное")
+        else:
+            print("Нечетное")
 
 if __name__ == "__main__":
     App = Bench()
