@@ -2,9 +2,23 @@
 from time import perf_counter
 import inquirer
 
-import algoritms
+import algoritms, huffman_encoder
 
 class Bench():
+
+    def start(self):
+        options = ['Алгоритмы для чисел Фибоначчи', 'Кодировка алгоритмом Хаффмана']
+        questions = [inquirer.List('select', message="Выберите категорию.", choices=options, ), ]
+        answers = inquirer.prompt(questions)
+
+        if answers["select"] == "Алгоритмы для чисел Фибоначчи":
+            self.gui()
+        elif answers["select"] == "Кодировка алгоритмом Хаффмана":
+            print("Введите строку для кодирования: ")
+            s = input()
+            huffman_encoder.huffman_encode(s)
+
+            self.start()
 
     def gui(self):
         # Опции меню выбора
@@ -89,7 +103,6 @@ class Bench():
         time_start = perf_counter()
         print(f"Значение: {algoritms.fib_big_even_odd(n)}")
         time_end = perf_counter()
-        
 
         duration = time_end - time_start
         print(f"Посчитано за: {duration}")
@@ -103,4 +116,4 @@ class Bench():
 
 if __name__ == "__main__":
     App = Bench()
-    App.gui()
+    App.start()
