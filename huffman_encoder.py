@@ -47,7 +47,7 @@ def huffman_encode(s):
     encoded_string = ''.join(huffman_code[char] for char in s)
 
     # Вывод результатов
-    print(len(huffman_code), len(encoded_string))
+    print("Количество уникальных символов:", len(huffman_code),";","Размер закодированной строки:", len(encoded_string))
     for char, code in sorted(huffman_code.items()):
         print(f"'{char}': {code}")
     print(encoded_string)

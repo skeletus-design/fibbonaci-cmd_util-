@@ -8,7 +8,7 @@ class Bench():
 
     def start(self):
         options = ['Алгоритмы для чисел Фибоначчи', 'Кодировка алгоритмом Хаффмана']
-        questions = [inquirer.List('select', message="Выберите категорию.", choices=options, ), ]
+        questions = [inquirer.List('select', message="Выберите категорию", choices=options, ), ]
         answers = inquirer.prompt(questions)
 
         if answers["select"] == "Алгоритмы для чисел Фибоначчи":
