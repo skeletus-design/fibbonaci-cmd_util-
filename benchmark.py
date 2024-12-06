@@ -7,22 +7,17 @@ import algoritms, huffman_encoder
 class Bench():
 
     def start(self):
-        options = ['Алгоритмы для чисел Фибоначчи', 'Кодировка алгоритмом Хаффмана', 'Декодирование алгоритмом Хаффмана']
+        options = ['Алгоритмы для чисел Фибоначчи', 'Алгоритм Хаффмана']
         questions = [inquirer.List('select', message="Выберите категорию", choices=options, ), ]
         answers = inquirer.prompt(questions)
 
         if answers["select"] == "Алгоритмы для чисел Фибоначчи":
             self.gui()
-        elif answers["select"] == "Кодировка алгоритмом Хаффмана":
-            print("Введите строку для кодирования: ")
-            s = input()
-            huffman_encoder.huffman_encode(s)
+        elif answers["select"] == "Алгоритм Хаффмана":
+            huffman_encoder.main()
 
             self.start()
-        elif answers["select"] == "Декодирование алгоритмом Хаффмана":
-            print("None ;3")
-            print("")
-            self.start()
+        
 
     def gui(self):
         # Опции меню выбора
