@@ -3,3 +3,5 @@
 ````
 pip install inquirer
 ````
+## Для запуска понадобится ptrhon последней версии
+Откройте файл algoritms.py
